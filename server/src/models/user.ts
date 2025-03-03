@@ -1,5 +1,78 @@
 
-import { DataTypes, type Sequelize, Model, type Optional } from 'sequelize';
+// import { DataTypes, type Sequelize, Model, type Optional } from 'sequelize';
+// import bcrypt from 'bcrypt';
+
+// interface UserAttributes {
+//   id: number;
+//   username: string;
+//   email: string;
+//   password: string;
+// }
+
+// interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
+
+// export class User
+//   extends Model<UserAttributes, UserCreationAttributes>
+//   implements UserAttributes
+// {
+//   public id!: number;
+//   public username!: string;
+//   public email!: string;
+//   public password!: string;
+
+//   public readonly createdAt!: Date;
+//   public readonly updatedAt!: Date;
+
+//   // Hash the password before saving the user
+//   public static async setPassword(password: string): Promise<string> {
+//     const saltRounds = 10;
+//     return bcrypt.hash(password, saltRounds);
+//   }
+// }
+
+// export function UserFactory(sequelize: Sequelize): typeof User {
+//   User.init(
+//     {
+//       id: {
+//         type: DataTypes.INTEGER,
+//         autoIncrement: true,
+//         primaryKey: true,
+//       },
+//       username: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//       },
+//       email: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//       },
+//       password: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//       },
+//     },
+//     {
+//       tableName: 'users',
+//       sequelize,
+//       hooks: {
+//         beforeCreate: async (user: User) => {
+//           // Hash password before saving it
+//           user.password = await User.setPassword(user.password);
+//         },
+//         beforeUpdate: async (user: User) => {
+//           // Hash password before updating it
+//           if (user.changed('password')) {
+//             user.password = await User.setPassword(user.password);
+//           }
+//         },
+//       },
+//     }
+//   );
+
+//   return User;
+// }
+
+import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
 import bcrypt from 'bcrypt';
 
 interface UserAttributes {
@@ -7,9 +80,11 @@ interface UserAttributes {
   username: string;
   email: string;
   password: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
-interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
+interface UserCreationAttributes extends Optional<UserAttributes, 'id' | 'createdAt' | 'updatedAt'> {}
 
 export class User
   extends Model<UserAttributes, UserCreationAttributes>
@@ -54,6 +129,7 @@ export function UserFactory(sequelize: Sequelize): typeof User {
     {
       tableName: 'users',
       sequelize,
+      timestamps: true,  // This ensures Sequelize will manage createdAt and updatedAt
       hooks: {
         beforeCreate: async (user: User) => {
           // Hash password before saving it

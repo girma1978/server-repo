@@ -19,17 +19,19 @@
 //     );
 
 // export default sequelize;
-
 import dotenv from 'dotenv';
 dotenv.config();
 
 import { Sequelize } from 'sequelize';
 
-// Check if DATABASE_URL is available (i.e., for Render deployment)
 const sequelize = process.env.DATABASE_URL
   ? new Sequelize(process.env.DATABASE_URL, {
       dialect: 'postgres',
       dialectOptions: {
+        ssl: {
+          require: true,  // This ensures SSL is required
+          rejectUnauthorized: false,  // This allows self-signed certificates (typically used in cloud environments)
+        },
         decimalNumbers: true,
       },
     })

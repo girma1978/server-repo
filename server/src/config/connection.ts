@@ -1,52 +1,16 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
-import { Sequelize } from 'sequelize';
-
-const sequelize = process.env.DB_URL
-  ? new Sequelize(process.env.DB_URL)
-  : new Sequelize(
-      process.env.DB_NAME || '',
-      process.env.DB_USER || '',
-      process.env.DB_PASSWORD,
-      {
-        host: 'localhost',
-        dialect: 'postgres',
-        dialectOptions: {
-          decimalNumbers: true,
-        },
-      }
-    );
-
-export default sequelize;
-
-
-
-
 // import dotenv from 'dotenv';
 // dotenv.config();
 
 // import { Sequelize } from 'sequelize';
 
-// const sequelize = process.env.DATABASE_URL
-//   ? new Sequelize(process.env.DATABASE_URL, {
-//       dialect: 'postgres',
-//       dialectOptions: {
-//         ssl: {
-//           require: true,  // Ensure SSL is required for cloud (Render)
-//           rejectUnauthorized: false,  // Allow self-signed certs (common for cloud)
-//         },
-//         decimalNumbers: true,
-//       },
-//     })
+// const sequelize = process.env.DB_URL
+//   ? new Sequelize(process.env.DB_URL)
 //   : new Sequelize(
 //       process.env.DB_NAME || '',
 //       process.env.DB_USER || '',
-//       process.env.DB_PASSWORD || '',
+//       process.env.DB_PASSWORD,
 //       {
-//         host: process.env.DB_HOST || 'localhost',
-//         // Convert DB_PORT to a number, default to 5432 if it's not set or invalid
-//         port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,
+//         host: 'localhost',
 //         dialect: 'postgres',
 //         dialectOptions: {
 //           decimalNumbers: true,
@@ -55,3 +19,38 @@ export default sequelize;
 //     );
 
 // export default sequelize;
+
+import dotenv from 'dotenv';
+dotenv.config();
+
+import { Sequelize } from 'sequelize';
+
+// Check if we're in production (Render or similar environments)
+const isProduction = process.env.NODE_ENV === 'production';
+
+const sequelize = process.env.DB_URL
+  ? new Sequelize(process.env.DB_URL, {
+      dialect: 'postgres',
+      dialectOptions: isProduction
+        ? {
+            ssl: {
+              require: true, // Ensure SSL is used in production
+              rejectUnauthorized: false, // Disable certificate validation (specific to Render)
+            },
+          }
+        : {},
+    })
+  : new Sequelize(
+      process.env.DB_NAME || '',  // Database name
+      process.env.DB_USER || '',  // Database user
+      process.env.DB_PASSWORD,    // Database password
+      {
+        host: 'localhost',         // Default to localhost for local development
+        dialect: 'postgres',      // PostgreSQL dialect
+        dialectOptions: {
+          decimalNumbers: true,   // Ensure decimal numbers are returned correctly
+        },
+      }
+    );
+
+export default sequelize;

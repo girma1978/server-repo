@@ -1,5 +1,5 @@
-
 import express from 'express';
+import cors from 'cors';
 import sequelize from './config/connection.js';
 import routes from './routes/index.js';
 import { seedUsers } from './seeds/user-seeds.js'; // Import user seed function
@@ -10,6 +10,15 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const forceDatabaseRefresh = false;
+
+// CORS middleware configuration
+const corsOptions = {
+  origin: ['http://localhost:3000', 'http://localhost:5173'], // Add allowed origins here
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions)); // Use CORS middleware
 
 // Run the seed functions before starting the server
 const initializeApp = async () => {

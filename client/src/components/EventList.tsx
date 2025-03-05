@@ -32,7 +32,7 @@ const EventList = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/events/');
+        const response = await axios.get('https://server-repo-pdaf.onrender.com/api/events/');
         if (Array.isArray(response.data)) {
           setEvents(response.data);
         } else {
@@ -63,7 +63,7 @@ const EventList = () => {
       console.log('Submitting new event:', newEvent);
 
       // POST request to create a new event
-      const response = await axios.post('http://localhost:3001/api/events/', newEvent);
+      const response = await axios.post('https://server-repo-pdaf.onrender.com/api/events/', newEvent);
       console.log('Backend response:', response.data);
 
       if (response.data) {

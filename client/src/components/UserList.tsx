@@ -23,7 +23,7 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/users'); // Fetch users from the API
+        const response = await axios.get('https://server-repo-pdaf.onrender.com/api/users'); // Fetch users from the API
 
         // Ensure the response is an array
         if (Array.isArray(response.data)) {
@@ -42,7 +42,7 @@ const UserList = () => {
 
   const handleCreateUser = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/api/users', newUser); // Post new user data
+      const response = await axios.post('https://server-repo-pdaf.onrender.com/api/users', newUser); // Post new user data
 
       if (response.status === 201) {
         setSuccessMessage('User created successfully!');

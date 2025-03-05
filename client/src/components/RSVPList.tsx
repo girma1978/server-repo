@@ -29,7 +29,7 @@ const RSVPList = () => {
   useEffect(() => {
     const fetchRsvps = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/rsvps'); // Get RSVPs from API
+        const response = await axios.get('https://server-repo-pdaf.onrender.com/api/rsvps'); // Get RSVPs from API
 
         // Ensure the response is an array
         if (Array.isArray(response.data)) {
@@ -60,7 +60,7 @@ const RSVPList = () => {
     e.preventDefault();
     try {
       // Send the POST request to create a new RSVP
-      const response = await axios.post('http://localhost:3001/api/rsvps', {
+      const response = await axios.post('https://server-repo-pdaf.onrender.com/api/rsvps', {
         userId: newRsvp.userId,
         eventId: newRsvp.eventId,
         status: newRsvp.status,

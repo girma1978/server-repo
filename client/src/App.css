@@ -1,370 +1,266 @@
 /* General Styles */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #f1f3f5;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9;
 }
 
-.event-list-container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h2.event-list-header {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-h3 {
-  color: #555;
-  margin-top: 20px;
-}
-
-.error-message {
-  color: red;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.go-home-button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.3s ease;
-}
-
-.go-home-button:hover {
-  background-color: #0056b3;
-}
-
-.create-event-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.create-event-form input,
-.create-event-form textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-  background-color: #f9f9f9;
-}
-
-.create-event-form textarea {
-  height: 100px;
-  resize: vertical;
-}
-
-.create-event-form button {
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: center;
-}
-
-.create-event-form button:hover {
-  background-color: #218838;
-}
-
-.event-list {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 30px;
-}
-
-.event-item {
-  background-color: #f9f9f9;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.event-item h3 {
-  color: #333;
-}
-
-.event-item p {
-  color: #666;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.no-events-message {
-  text-align: center;
-  color: #777;
-  font-style: italic;
-}
-
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f7f7f7;
-}
-
-/* RSVP List Container */
-.rsvp-list-container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
+/* User List Styles */
+.user-list-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
   background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.user-list-header {
+  text-align: center;
+  font-size: 2rem;
+  color: #343a40;
+  margin-bottom: 25px;
+}
+
+.create-user-form {
+  background-color: #e9ecef;
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
 }
 
-h2.rsvp-list-header {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.error-message {
-  color: red;
-  text-align: center;
-  font-weight: bold;
+.create-user-form h3 {
+  font-size: 1.5rem;
+  color: #495057;
   margin-bottom: 15px;
 }
 
-/* Button to Go Home */
-.go-home-button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+.create-user-form input {
+  width: 100%;
+  padding: 12px 18px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+.create-user-form input:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.create-user-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: #fff;
+  font-size: 1.1rem;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 8px;
   cursor: pointer;
+  margin-top: 15px;
   transition: background-color 0.3s ease;
 }
 
-.go-home-button:hover {
-  background-color: #0056b3;
+.create-user-form button:hover {
+  background-color: #357ab7;
 }
 
-/* RSVP Form */
-.create-rsvp-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
+.success-message {
+  color: #28a745;
+  background-color: #d4edda;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.user-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.user-item {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.user-item p {
+  font-size: 1rem;
+  color: #495057;
+  margin: 8px 0;
+}
+
+.user-item p strong {
+  color: #343a40;
+}
+
+.no-users-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #495057;
   margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .user-list-container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .create-user-form {
+    padding: 15px;
+  }
+
+  .user-item {
+    padding: 15px;
+  }
+
+  .create-user-form h3 {
+    font-size: 1.2rem;
+  }
+
+  .create-user-form input,
+  .create-user-form button {
+    font-size: 0.9rem;
+  }
+}
+
+/* Style for the "Back to Home" button */
+.go-home-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.go-home-button:hover {
+  background-color: #45a049;
+}
+
+/* RSVP List Styles */
+.rsvp-list-container {
+  padding: 20px;
+  background-color: #f4f4f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rsvp-list-header {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .create-rsvp-form div {
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 15px;
 }
 
 .create-rsvp-form label {
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #555;
 }
 
-.create-rsvp-form input,
-.create-rsvp-form select {
+.create-rsvp-form input, .create-rsvp-form select {
+  width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-  background-color: #f9f9f9;
+  margin-top: 5px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.create-rsvp-form input:focus, .create-rsvp-form select:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
 }
 
 .create-rsvp-form button {
-  padding: 10px 20px;
-  background-color: #28a745;
+  background-color: #007BFF;
   color: white;
+  padding: 10px 15px;
+  font-size: 1rem;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: center;
 }
 
 .create-rsvp-form button:hover {
-  background-color: #218838;
-}
-
-/* RSVP List */
-.rsvp-list {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 30px;
-}
-
-.rsvp-item {
-  background-color: #f9f9f9;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.rsvp-item p {
-  color: #666;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-.rsvp-item strong {
-  color: #333;
-}
-
-/* No RSVPs Message */
-.no-rsvps-message {
-  text-align: center;
-  color: #777;
-  font-style: italic;
-}
-
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-}
-
-/* Event List Container */
-.event-list-container {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-h2.event-list-header {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.error-message {
-  color: red;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-/* Go Home Button */
-.go-home-button {
-  display: block;
-  margin: 20px auto;
-  padding: 12px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.go-home-button:hover {
   background-color: #0056b3;
 }
 
-/* Event Creation Form */
-.create-event-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.create-event-form input,
-.create-event-form textarea {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 14px;
-  background-color: #f9f9f9;
-}
-
-.create-event-form input[type="date"],
-.create-event-form input[type="time"] {
-  max-width: 200px;
-}
-
-.create-event-form button {
-  padding: 12px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: center;
-}
-
-.create-event-form button:hover {
-  background-color: #218838;
-}
-
-/* Event List */
-.event-list {
+.rsvp-list {
   list-style-type: none;
   padding: 0;
-  margin-top: 30px;
 }
 
-.event-item {
-  background-color: #f9f9f9;
+.rsvp-item {
+  background-color: #fff;
   padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.event-item h3 {
-  margin: 0;
-  font-size: 18px;
-  color: #333;
-}
-
-.event-item p {
-  color: #666;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-.event-item strong {
-  color: #333;
-}
-
-/* No Events Available */
-.no-events-message {
+.no-rsvps-message {
   text-align: center;
-  color: #777;
   font-style: italic;
+  color: #888;
 }
+
+/* Additional Global Adjustments */
+* {
+  box-sizing: border-box;
+}
+
+/* Button Styles for Form */
+.form-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-user-form button,
+.create-rsvp-form button {
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+}
+
+.create-user-form button:hover,
+.create-rsvp-form button:hover {
+  background-color: #357ab7;
+}
+
